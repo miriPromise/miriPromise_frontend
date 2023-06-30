@@ -11,9 +11,6 @@ const Header = ({ title }) => {
           height: 230,
         }}
       />
-      <Text style={styles.headerText}>
-        내 <Text style={styles.headerinnerText}>주변</Text> 병원 찾기
-      </Text>
     </View>
   );
 };

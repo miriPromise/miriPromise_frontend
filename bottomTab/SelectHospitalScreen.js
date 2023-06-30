@@ -1,5 +1,7 @@
 import React from 'react';
-import { StatusBar, StyleSheet, Text, View, Image,TouchableOpacity,FlatList } from 'react-native';
+import { StatusBar, StyleSheet, Text, View, Image, TouchableOpacity, FlatList } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import HospitalCircle from '../components/HospitalCircle';
 
 const imageUrls = [
   'https://velog.velcdn.com/images/thgus05061/post/b45c4ed2-b6fc-4f90-9fa1-0d537692871f/image.png',
@@ -11,46 +13,40 @@ const imageUrls = [
   'https://velog.velcdn.com/images/thgus05061/post/ffb2a9af-0dea-4e0d-8a71-99eb99141dc0/image.png',
   'https://velog.velcdn.com/images/thgus05061/post/4e1ca0d2-50c8-411f-8dfb-c58f3fbe251d/image.png',
   'https://velog.velcdn.com/images/thgus05061/post/7639e916-b90c-4d8e-8b52-4acb467f8787/image.png',
-
 ];
+
 const SelectHospitalScreen = () => {
+  const navigation = useNavigation();
 
   const renderGridItem = ({ item }) => (
-    <View style={styles.gridItem}>
+    <TouchableOpacity style={styles.gridItem} onPress={() => navigation.navigate('LocationScreen', { imageUrl: item })}>
       <Image source={{ uri: item }} style={styles.images} />
-    </View>
+    </TouchableOpacity>
   );
-
-  
 
   return (
-    <>
-     <View style={styles.container}>
-        <Image
+    <View style={styles.container}>
+      <Image
         source={{ uri: 'https://velog.velcdn.com/images/thgus05061/post/8fc7c151-1246-417d-90ff-dcc84c6f5ca8/image.png' }}
         style={styles.image}
+      />
+      <View style={styles.textContainer}>
+        <Text style={styles.nameText}>
+          어떤 병원<Text style={styles.text}>을 찾으세요?</Text>
+        </Text>
+      </View>
+      <View style={styles.FlatListContainer}>
+        <FlatList
+          data={imageUrls}
+          renderItem={renderGridItem}
+          numColumns={3}
+          keyExtractor={(item, index) => index.toString()}
+          style={styles.cardStyle}
         />
-        <View style={styles.textContainer}>
-          <Text style={styles.nameText}>어떤 병원<Text style={styles.text}>을 찾으세요?</Text></Text> 
-        </View>
-        <View style={styles.FlatListContainer}>
-          <FlatList 
-      data={imageUrls}
-      renderItem={renderGridItem}
-      numColumns={3}
-      keyExtractor={(item, index) => index.toString()}
-      style={styles.cardStyle}
-    />
-        </View>
-        
-      
-      
-      
+      </View>
     </View>
-    </>
-   
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -65,8 +61,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     position: 'absolute',
-    top: 110, // 텍스트의 Y 좌표 값 조정
-    //left: 109, // 텍스트의 X 좌표 값 조정
+    top: 110,
     textAlign: 'center',
   },
   text: {
@@ -79,7 +74,6 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: '700',
     color: '#FFB800',
-    
   },
   gridItem: {
     flex: 1,
@@ -88,22 +82,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#ccc',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 19, // 이미지 간의 상하좌우 간격을 조정합니다.
+    margin: 19,
   },
   images: {
     width: 117,
     height: 117,
   },
-  FlatListContainer:{
+  FlatListContainer: {
     flex: 1,
     padding: 7,
     width: 365,
     height: 1389,
-    marginTop:19,
+    marginTop: 19,
   },
-  
-
-
 });
 
 export default SelectHospitalScreen;

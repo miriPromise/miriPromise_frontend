@@ -6,6 +6,8 @@ import BottomTabNavigator from "./bottomTab/BottomTabNavigator";
 import CurrentLocationScreen from "./bottomTab/CurrentLocationScreen";
 import SelectHospitalScreen from "./bottomTab/SelectHospitalScreen";
 import MedicationScreen from "./bottomTab/MedicationScreen";
+import LocationScreen from "./bottomTab/LocationScreen";
+import RegisterMedicationScreen from "./bottomTab/RegisterMedicationScreen";
 
 
 const Stack = createNativeStackNavigator();
@@ -34,6 +36,16 @@ export default function App() {
           <Stack.Screen
             name="MedicationScreen"
             component={MedicationScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="LocationScreen"
+            component={LocationScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="RegisterMedicationScreen"
+            component={RegisterMedicationScreen}
             options={{ headerShown: false }}
           />
 
