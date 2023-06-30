@@ -48,8 +48,8 @@ export default function BottomTabNavigator() {
         />
 
         <Tab.Screen
-          name="CurrentLocationScreen"
-          component={CurrentLocationScreen}
+          name="HomeScreen"
+          component={HomeScreen}
           options={{
             headerShown: false,
             tabBarIcon: () => (
@@ -79,8 +79,8 @@ export default function BottomTabNavigator() {
           }}
         />
         <Tab.Screen
-          name="LocationScreen"
-          component={LocationScreen}
+          name="CurrentLocationScreen"
+          component={CurrentLocationScreen}
           options={{
             headerShown: false,
             tabBarIcon: ({ focused }) => (
