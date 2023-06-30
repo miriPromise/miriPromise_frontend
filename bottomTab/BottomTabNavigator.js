@@ -97,6 +97,14 @@ export default function BottomTabNavigator() {
             ),
           }}
         />
+         <Tab.Screen
+            name={"SelectHospitalScreen"}
+            component={SelectHospitalScreen}
+            options={{
+              headerShown: false,
+              tabBarButton: () => null,
+            }}
+          />
       </Tab.Navigator>
     </View>
   );
