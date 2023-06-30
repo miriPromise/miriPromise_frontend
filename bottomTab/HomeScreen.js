@@ -34,7 +34,7 @@ export default function HomeScreen() {
           source={{ uri: 'https://velog.velcdn.com/images/thgus05061/post/c06d7d1e-2ede-442d-9f36-eca20bfd183f/image.png' }}
           style={styles.medicineImage}
           />
-          <TouchableOpacity onPress={handleCurrentLocationPress}>
+          <TouchableOpacity onPress={handleMedicationPress}>
           <View style={styles.boxContainer}>
             <Text style={styles.boxTextName}>투여하는 약</Text>
             <Text style={styles.boxText}>
@@ -51,7 +51,7 @@ export default function HomeScreen() {
           source={{ uri: 'https://velog.velcdn.com/images/thgus05061/post/08a7e6cc-9d9c-47c5-888f-a2e4c75c4b7c/image.png' }}
           style={styles.hospitalMapImage}
           />
-          <TouchableOpacity onPress={handleMedicationPress}>
+          <TouchableOpacity onPress={handleCurrentLocationPress}>
           <View style={styles.boxContainer}>
           <Text style={styles.boxTextName2}>주변 병원 지도</Text>
             <Text style={styles.boxText2}>
