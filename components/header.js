@@ -1,32 +1,40 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Image, Text } from "react-native";
 
 const Header = ({ title }) => {
   return (
-    <Image
-      source={{
-        uri: "https://velog.velcdn.com/images/kkaerrung/post/117fc1b5-2c9b-4335-a20d-1274783d533c/image.png",
-        width: 575,
-        height: 274,
-      }}
-    />
+    <View style={styles.container}>
+      <Image
+        source={{
+          uri: "https://velog.velcdn.com/images/thgus05061/post/8fc7c151-1246-417d-90ff-dcc84c6f5ca8/image.png",
+          width: 440,
+          height: 230,
+        }}
+      />
+      <Text style={styles.headerText}>
+        내 <Text style={styles.headerinnerText}>주변</Text> 병원 찾기
+      </Text>
+    </View>
   );
 };
 
+export default Header;
+
 const styles = StyleSheet.create({
-  header: {
-    backgroundColor: "#F3AC61",
-    borderRadius: 20,
-    elevation: 5,
+  container: {
+    height: 274.5,
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "flex-start",
   },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "#FFFFFF",
+  headerText: {
+    color: "#1C386F",
     textAlign: "center",
-    padding: 10,
-    top: 50,
+    fontSize: 26,
+    fontWeight: 700,
+    top: -110,
+  },
+  headerinnerText: {
+    color: "#FFB800",
   },
 });
-
-export default Header;
