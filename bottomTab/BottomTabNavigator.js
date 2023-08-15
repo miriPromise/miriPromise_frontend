@@ -12,18 +12,19 @@ const Tab = createBottomTabNavigator();
 
 export default function BottomTabNavigator() {
   return (
-    <View style={{ width: "100%", height: "100%" }}>
+    <View style={{ width: "100%", height: "100%", backgroundColor: "#5181FF" }}>
       <Tab.Navigator
         initialRouteName="HomeScreen"
         screenOptions={() => ({
           tabBarStyle: {
             backgroundColor: "#FFFFFF",
             height: 90,
-            top: 15,
-            width: 400,
-            borderRadius: 30,
+            // top: 15,
+            width: "100%",
+            borderTopLeftRadius: 30,
+            borderTopRightRadius: 30,
           },
-          tabBarIconStyle: { marginBottom: 1, marginTop: 10 },
+          tabBarIconStyle: { marginBottom: 1 },
           tabBarLabelStyle: { display: "none" },
         })}
       >
@@ -48,16 +49,16 @@ export default function BottomTabNavigator() {
         />
 
         <Tab.Screen
-          name="CurrentLocationScreen"
-          component={CurrentLocationScreen}
+          name="HomeScreen"
+          component={HomeScreen}
           options={{
             headerShown: false,
             tabBarIcon: () => (
               <View
                 style={{
                   top: -30,
-                  width: 95,
-                  height: 95,
+                  width: 90,
+                  height: "100%",
                   borderRadius: 100,
                   alignItems: "center",
                   justifyContent: "center",
@@ -79,8 +80,8 @@ export default function BottomTabNavigator() {
           }}
         />
         <Tab.Screen
-          name="LocationScreen"
-          component={LocationScreen}
+          name="CurrentLocationScreen"
+          component={CurrentLocationScreen}
           options={{
             headerShown: false,
             tabBarIcon: ({ focused }) => (
@@ -95,6 +96,22 @@ export default function BottomTabNavigator() {
                 }}
               />
             ),
+          }}
+        />
+        <Tab.Screen
+          name={"SelectHospitalScreen"}
+          component={SelectHospitalScreen}
+          options={{
+            headerShown: false,
+            tabBarButton: () => null,
+          }}
+        />
+        <Tab.Screen
+          name={"LocationScreen"}
+          component={LocationScreen}
+          options={{
+            headerShown: false,
+            tabBarButton: () => null,
           }}
         />
       </Tab.Navigator>
