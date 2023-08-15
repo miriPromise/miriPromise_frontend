@@ -9,7 +9,6 @@ import {
   FlatList,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import HospitalCircle from "../components/HospitalCircle";
 
 const imageUrls = [
   "https://velog.velcdn.com/images/thgus05061/post/b45c4ed2-b6fc-4f90-9fa1-0d537692871f/image.png",
@@ -91,8 +90,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     position: "absolute",
-    top: 110, // 텍스트의 Y 좌표 값 조정
-    //left: 109, // 텍스트의 X 좌표 값 조정
+    top: 110,
     textAlign: "center",
   },
   text: {
@@ -113,7 +111,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ccc",
     justifyContent: "center",
     alignItems: "center",
-    margin: 19, // 이미지 간의 상하좌우 간격을 조정합니다.
+    margin: 19,
   },
   images: {
     width: 117,
