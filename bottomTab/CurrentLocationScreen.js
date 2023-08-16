@@ -1,19 +1,46 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
-import MapView, { Marker, Circle } from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
+import * as Location from "expo-location"; // expo-location 라이브러리를 가져옴
 import Header from "../components/header";
 import HospitalCircle from "../components/HospitalCircle";
 import { useNavigation } from "@react-navigation/native";
 
 const CurrentLocationScreen = () => {
   const navigation = useNavigation();
+  const mapRef = useRef(null);
 
-  const region = {
-    latitude: 37.484463,
-    longitude: 127.014433,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
-  };
+  const [region, setRegion] = useState({
+    latitude: 0,
+    longitude: 0,
+    latitudeDelta: 0.1,
+    longitudeDelta: 0.1,
+  });
+
+  useEffect(() => {
+    // 현재 위치 가져오기
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        console.error("Permission to access location was denied");
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      const currentRegion = {
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+      };
+      setRegion(currentRegion);
+
+      // 지도 위치 업데이트
+      if (mapRef.current) {
+        mapRef.current.animateToRegion(currentRegion, 1000);
+      }
+    })();
+  }, []);
 
   const handleYesButtonPress = () => {
     navigation.navigate("SelectHospitalScreen");
@@ -23,14 +50,14 @@ const CurrentLocationScreen = () => {
     <View style={styles.container}>
       <Header title={"내 주변 병원 찾기"} />
       <HospitalCircle />
-      <MapView style={styles.map} initialRegion={region}>
+      <MapView ref={mapRef} style={styles.map}>
         <Marker
           title="Current Location"
           coordinate={{
             latitude: region.latitude,
             longitude: region.longitude,
           }}
-        ></Marker>
+        />
       </MapView>
 
       <Text style={styles.confirmText}> 이 위치가 맞나요? </Text>
