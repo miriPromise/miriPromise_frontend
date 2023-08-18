@@ -25,10 +25,22 @@
 ### 현 위치 확인 화면 
 -  사용자의 위치 권한을 얻고 현재 위치를 가져오는 기능 구현
 -  사용자의 위치에 마커를 놓아 현재 위치를 시각적으로 구현 
+    <p>
+      <img src="https://github.com/miriPromise/miriPromise_frontend/assets/109844803/af3e345a-1083-42bc-972a-a46f3b69e171" alt="image" width="270" height="500" />
+    </p>
 
 ### 병원 선택 화면 
 - 사용자가 원하는 병원 유형을 선택할 수 있는 UI 구현
+  <p>
+  <img src="https://github.com/miriPromise/miriPromise_frontend/assets/109844803/0aa0c186-539d-4c73-8ce5-02e97eebd600" alt="image" width="270" height="500" />
+</p>
     
 ### 가까운 병원 확인 화면
-- 구글맵 API를 활용하여, 반경 1km 이내의 가까운 병원들을 확인할 수 있는 화면 구현 
+- 구글맵 API를 활용하여, 반경 2km 이내의 가까운 병원들을 확인할 수 있는 화면 구현 
 - 선택된 병원 유형에 따라 검색 결과를 필터링하여 보여줄 수 있도록 구현
+  <p align="left">
+  <img src="https://github.com/miriPromise/miriPromise_frontend/assets/109844803/e5d2ca57-e33d-4b24-ad15-0a36b4c2a5ad2" alt="image" width="270" height="500" />
+</p>
+
+
+
