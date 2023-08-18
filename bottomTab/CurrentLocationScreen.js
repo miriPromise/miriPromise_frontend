@@ -18,7 +18,6 @@ const CurrentLocationScreen = () => {
   });
 
   useEffect(() => {
-    // 현재 위치 가져오기
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
@@ -35,7 +34,6 @@ const CurrentLocationScreen = () => {
       };
       setRegion(currentRegion);
 
-      // 지도 위치 업데이트
       if (mapRef.current) {
         mapRef.current.animateToRegion(currentRegion, 1000);
       }
@@ -43,7 +41,9 @@ const CurrentLocationScreen = () => {
   }, []);
 
   const handleYesButtonPress = () => {
-    navigation.navigate("SelectHospitalScreen");
+    navigation.navigate("SelectHospitalScreen", {
+      currentRegion: region,
+    });
   };
 
   return (
