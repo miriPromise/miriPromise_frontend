@@ -9,6 +9,7 @@ import {
   FlatList,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 
 const imageUrls = [
   "https://velog.velcdn.com/images/thgus05061/post/b45c4ed2-b6fc-4f90-9fa1-0d537692871f/image.png",
@@ -24,6 +25,8 @@ const imageUrls = [
 
 const SelectHospitalScreen = () => {
   const navigation = useNavigation();
+  const route = useRoute();
+  const region = route.params;
 
   const hospitalNames = [
     "내과",
@@ -44,6 +47,7 @@ const SelectHospitalScreen = () => {
         navigation.navigate("LocationScreen", {
           imageUrl: item,
           hospitalName: hospitalNames[index],
+          region,
         })
       }
     >
