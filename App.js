@@ -6,7 +6,7 @@ import BottomTabNavigator from "./bottomTab/BottomTabNavigator";
 import CurrentLocationScreen from "./bottomTab/CurrentLocationScreen";
 import SelectHospitalScreen from "./bottomTab/SelectHospitalScreen";
 import MedicationScreen from "./bottomTab/MedicationScreen";
-
+import LocationScreen from "./bottomTab/LocationScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,7 +36,11 @@ export default function App() {
             component={MedicationScreen}
             options={{ headerShown: false }}
           />
-
+          <Stack.Screen
+            name="LocationScreen"
+            component={LocationScreen}
+            options={{ headerShown: false }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
